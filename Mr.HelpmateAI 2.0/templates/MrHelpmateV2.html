@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="module" src="/static/js/MrHelpmate.js"></script>
+    <script src="/static/js/customDialog.js"></script>
+    <script src="/static/js/uploadFiles.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/customDialog.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/upload.css">
+    <title>
+        Mr. Helpmate
+    </title>
+
+</head>
+
+<body>
+    <div class="outercontainer">
+        <div class="center" id="dvChatBoxTitle">
+            <h1 id="titlestyle">
+                Mr. Helpmate 2.0
+            </h1>
+        </div>
+        <div class="conversationcontainer">
+            <div class="innerConversationContainer" id="chatcontainer">
+                <!-- // Chat messages will be displayed here -->
+            </div>
+        </div>
+        <div class="typingIndicatorWrapper">
+
+            <div id="typingIndicator" style="display:none;">
+                <em>Assistant is typing</em><span id="typingIndicatorDot">.....</span> <!-- Typing Indicator -->
+            </div>
+        </div>
+        <form id="chatBoxForm" class="center">
+            <textarea placeholder="Enter your message here..." name="user_input_message" id="inputtextbox"
+                tabindex="1"></textarea>
+            <input class="button-pop" type="submit" value=" " id="submitbutton" tabindex="2">
+
+        </form>
+
+        <form id="restartConversationForm" class="center">
+            <button class="button-pop" type="submit" id="restartConversation" tabindex="3"></button>
+        </form>
+    </div>
+    <div id="customAlert" class="custom-dialog hidden">
+        <div class="dialog-content">
+            <h2>Attention Needed</h2>
+            <p>We're sorry, but either your session got crashed or your recent input didn't comply with our community standards. Please rester the conversation.</p>
+            <button onclick="restartConversation()">Restart Now</button>
+        </div>
+    </div>
+    <div id="dvUploadMain" class="custom-dialog hidden">
+        <div class="dialog-content">
+            <div id="dvUploadedFiles">                
+                <div id="nofiles">No files uploaded yet.</div>
+                <div id="listfilewrapper">
+                    <div style="margin: 0 0 8 0;"><u>Uploaded Files</u></div>
+                    <ul id="ulUploadedFiles" class="file-list"></ul>
+                </div>
+            </div>
+            <div style="display: block;">
+                <div class="file-upload-wrapper">
+                    <input type="file" id="fileInput" multiple accept=".pdf">
+                    <label for="fileInput">Choose files</label>                  
+                  </div>
+                <div class="label-button-wrapper">
+                    <input type="button" id="btnStartConversation">
+                    <label for="btnStartConversation">Start Conversation</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

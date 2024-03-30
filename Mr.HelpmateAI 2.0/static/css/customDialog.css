@@ -1,0 +1,142 @@
+.dialog-content h2 {
+    margin-top: 0;
+}
+
+.custom-dialog.hidden {
+    display: none;
+}
+
+#customAlert button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#customAlert button:hover {
+    background-color: #0056b3;
+}
+
+.custom-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+
+}
+
+#customAlert .custom-dialog{
+height: 195px!important;
+}
+.dialog-content {
+    background-color: #f2f3e8;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+
+    position: fixed;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 500px;
+    z-index: 1000;
+}
+#dvUploadMain.active +body {
+    overflow: hidden;
+}
+
+input[type="file"] {
+    /* Remove default styles */
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+  
+    /* Customize width and height */
+    width: 100%;
+    height: 30px; /* Adjust as needed */
+  
+    /* Optional stylings */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+
+  
+.tableContainer {
+    width: 100% !important;
+    max-height: calc(100vh - 18vh); /* Set the maximum height for the table */
+    overflow-y: auto; /* Enable vertical scrolling for the container */
+}
+
+#tblResuts {
+    width: 97%; /* Make the table fill the container */
+    border-collapse: collapse; /* Collapse table borders */
+    border: 1px solid #000; /* Add border to the table */
+    vertical-align: top;
+    margin: 10px;
+    padding: 10px;
+}
+
+#tblResuts th, #tblResuts td {
+    border: 1px solid #000; /* Add border to table cells */
+    padding: 8px; /* Add padding to improve cell appearance */
+}
+#tblResuts td {
+    vertical-align: top;
+    font-size: 9px;
+}
+
+#tblResuts th {
+    position: sticky; /* Fix table header in place */
+    top: -1; /* Fix the header at the top */
+    background-color: white; /* Optional: Set a background color for the header */
+    z-index: 1; /* Ensure the header is above other content */
+}
+
+#tblResuts tr {
+    border: 1px solid #000; /* Add border to table rows */
+}
+
+#popupContent{
+   height: calc(100vh - 18vh) !important;
+   width: calc(100vw - 52vw) !important;
+   padding-left: 35px;
+}
+div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable {
+    /* Your CSS styles here */
+    /* For example: */
+    width: calc(100vw - 50vw) !important;
+    top: -90vh !important;
+    background-color: lightblue;
+    border: 1px solid black;
+    /* Add any other styles as needed */
+  }
+
+div.ui-dialog-titlebar.ui-corner-all.ui-widget-header.ui-helper-clearfix.ui-draggable-handle {
+ display: flex;
+ justify-content: center;   
+ margin: 12px;
+ text-decoration: underline;
+}
+span.ui-dialog-title{
+font-size: 25px;
+}
+button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close{
+    position: absolute;
+    right: 40px;
+}
+div.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix{
+    display: none;
+}

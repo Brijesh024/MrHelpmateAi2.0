@@ -1,0 +1,267 @@
+
+body {
+    font-family: 'Arial', sans-serif; /* Changed to Arial for a more modern look */
+    margin: 35px;
+    background: #f4f4f4; /* Soft background for the whole page */
+}
+.outercontainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding:   20px 40px 40px 40px;
+    border: none; /* Removed the border for a cleaner look */
+    border-radius: 100px;
+    box-shadow: 25px 40px 28px -14px rgba(62,72,52,76.1); /* Subtle shadow for depth */
+    background: #7fd6b4; /* Light background for the container */
+    height: calc(100vh - 85px);
+    width: calc(100vw - 55vw);
+}
+
+#dvChatBoxTitle{
+   height: calc(100vh - 90vh); 
+}
+.conversationcontainer {
+    border: none;
+    padding: 20px;
+    height: calc(100vh - 45vh);
+    background-color: #c7d6d4; /* A very light gray for a soft appearance */
+    border-radius: 40px;
+    /* margin-bottom: 25px; */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Softer shadow for the conversation container */
+
+    display: flex; /* Set display to flex */    
+    align-items: flex-start; /* Align children to the start of the cross axis */
+
+    flex-direction: column-reverse; /* Newest messages at the bottom */
+    overflow-y: auto; /* Only show scrollbar when necessary */
+
+}
+.typingIndicatorWrapper {
+    height: calc(100vh - 98vh);
+    padding-top: 6px;
+    margin-left: 60px;
+    margin-bottom: 5px;
+}
+#typingIndicator em{
+    font-size: 12px;
+}
+#inputtextbox {
+    width: 85%;
+    height: calc(100vh - 91vh); /* Adjust based on how tall you want the textbox */
+    border: 2px solid #ccc;
+    padding: 12px;
+    background-color: #ffffff;
+    border-radius: 15px; /* This gives the textbox rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    resize: vertical; /* Allows the user to resize the textbox vertically */
+    outline: none; /* Removes the outline to keep the styling clean */
+    font-family: 'Arial', sans-serif; /* Matches the font with the rest of your design */
+    font-size: 1rem; /* Ensures the text is readable */
+    line-height: 1.5; /* Adjusts the spacing between lines of text */
+    overflow-y: auto; /* Adds a scrollbar if the text exceeds the textbox height */
+}
+#restartConversation {
+    background: url(/static/images/Restart.png) no-repeat center center;
+    background-size: cover;
+    border: none;
+    width: 65px;
+    height: calc(100vh - 92vh);
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Transition for a press effect */
+    MIX-BLEND-MODE: multiply;
+}
+
+#titlestyle {
+    color: #333333; /* Darker text for better readability */
+    background-color: #c7d6d4; /* Soft background for the title */
+    border: none;
+    padding: 8px;
+    margin: 8px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+#inputtextbox {
+    width: 85%;
+    border: 2px solid #ccc; /* Thinner border for a refined look */
+    padding: 12px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Inner shadow for an inset effect */
+}
+
+#submitbutton {
+    background: url(/static/images/send-icon.png) no-repeat center center;
+    background-size: cover;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Transition for a press effect */
+}
+
+#submitbutton:active {
+    transform: scale(0.9); /* Slightly scale down the button when clicked */
+}
+
+
+
+
+.user, .bot {
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    /* float: none;  Removed float for a more flexible layout  */
+    clear: both;
+    max-width: 70%;
+    margin: 5px 10px;
+    word-wrap: break-word; /* Ensure long words don't overflow */
+    align-self: flex-end; /* Align .user to the end of the container */
+    white-space: pre-wrap;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.user {
+    background-color: #4A90E2; /* Same color as the button for consistency */
+    align-self: flex-end; /* Align to the right */
+    float: right;
+}
+
+.bot { 
+    background-color: #7ED321; /* A fresh, lively green */
+    align-self: flex-start; /* Align to the left */
+    float: left;
+}
+/* all p,ul,li inside bot and user cliass should have margin set to 0 */
+.user p, .user ul, .user li,
+.bot p, .bot ul, .bot li
+{
+    margin: 0;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+form#chatBoxForm {
+    display: flex; /* This makes the form a flex container */
+    align-items: center; /* This aligns the children (textarea and button) vertically in the center */
+    justify-content: center; /* This spreads the children evenly, can be adjusted as needed */
+    gap: 10px; /* This adds space between the textarea and the button */
+}
+form{
+    margin: 5px;
+}
+
+
+
+@keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#typingIndicatorDot {
+    animation: blink 1s step-start 0s infinite;
+}
+
+.innerConversationContainer {
+    overflow-y: auto; /* Only show scrollbar when necessary */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    height: inherit;
+    width: 100%;
+    /* margin: 15px; */
+}
+
+
+
+/* Additional Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .outercontainer, .conversationcontainer, form {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    #inputtextbox, button {
+        width: 100%;
+    }
+
+    .user, .bot {
+        max-width: 100%;
+    }
+}
+@media (min-width: 1900px) {
+    .conversationcontainer{
+       height: calc(100vh - 40vh)
+
+    }
+    #titlestyle {
+        padding: 18px;
+        margin: 12px;
+    }
+
+}
+
+.button-pop {
+    background-color: #3498db; /* Replace with your button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 20px 40px 32px -6px rgba(112, 142, 112, 201.2); /* Horizontal offset, vertical offset, blur radius, color */
+    transition: all 0.3s;
+}
+
+.button-pop:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Larger shadow for hover effect */
+    transform: translateY(-2px); /* Optional: slight raise effect on hover */
+}
+
+.button-pop:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Smaller shadow for click effect */
+    transform: translateY(1px); /* Optional: button presses down when clicked */
+}
+
+.loadingPanel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+}
+
+.loadingIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 15px solid #008000;
+    border-radius: 50%;
+    border-top-color: #f3f3f3;
+    animation: spin 1s linear infinite;
+    -webkit-animation: spin 1s linear infinite;
+  }
+  .loadingText {
+    position: absolute;
+    top: 46%;
+    left: 49%;
+    width: 20px;
+    height: 20px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+#btnStartConversation:disabled + label {
+    /* Add your styling for the disabled label here */
+    color: gray; /* Example: Change text color to gray */
+    pointer-events: none; /* Prevent label from receiving pointer events */
+}

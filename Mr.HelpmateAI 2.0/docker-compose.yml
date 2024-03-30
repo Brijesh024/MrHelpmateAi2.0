@@ -1,0 +1,7 @@
+version: '3'
+services:
+  langchain-rag-app:
+    image: MrHelpmateAI2-app:latest
+    build: .
+    command: run app.py
+  
