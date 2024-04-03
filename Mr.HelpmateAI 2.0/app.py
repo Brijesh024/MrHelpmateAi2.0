@@ -3,6 +3,7 @@ from types import SimpleNamespace
 from Provider.LLM_Provider import initialize_conversation
 from werkzeug.utils import secure_filename
 
+from dotenv import load_dotenv
 import uuid
 import time
 import openai
@@ -64,11 +65,19 @@ def method_not_allowed_error(error):
 
 def initialiseGlobalVariables(client_id):    
     global conversation_bot, conversation, top_3_Result,introduction
-    with open(apiKeyFilePath) as f:
-        apiData = f.readline()
-        openai.api_key = apiData.strip()
-        if not openai.api_key:
-            raise ValueError("API Key is not loaded properly.")
+    # Read the text file containing the API key
+    filepath = os.getcwd()
+    
+    #load_dotenv()
+    #OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+    # Read the text file containing the API key
+    with open(filepath + "/OpenAI_API_Key.txt", "r") as f:
+         openai_api_key = ' '.join(f.readlines())
+
+    # Update the OpenAI API key by updating the environment variable
+    os.environ["OPENAI_API_KEY"] = openai_api_key
+    openai.api_key = openai_api_key
+
    
     conversation_bot = []
     conversation = initialize_conversation()
@@ -289,4 +298,4 @@ def invite():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0" ,threaded=True)
+    app.run(host='0.0.0.0',threaded=True)

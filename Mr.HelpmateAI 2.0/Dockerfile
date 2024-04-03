@@ -11,4 +11,4 @@ RUN pip3 install -r requirements.txt
 # copying all files over
 COPY . .
 # command to launch app
-CMD run app.py
+CMD ["python", "app.py"]

@@ -1,7 +1,15 @@
 version: '3'
 services:
-  langchain-rag-app:
-    image: MrHelpmateAI2-app:latest
+  mrhelpmateai2-app:
+    image: mrhelpmateai2-app:latest
     build: .
-    command: run app.py
+    command: python app.py
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    #environment:
+      #- OPENAI_API_KEY=sk-x1E6nikcLcS***********************
+      #you need not to add key here if you have .env file have the key, you cn just write variable name andf it will pick value from .env file=>  - OPENAI_API_KEY
+
   
